@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack --config webpack.config.js",
-    "watch": "npm run start -- --watch"
+    "start": "./node_modules/.bin/webpack --config webpack.config.js --watch",
+    "build": "./node_modules/.bin/webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",

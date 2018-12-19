@@ -1,10 +1,21 @@
-var path = require('path');
-var webpack = require('webpack');
-var BundleTracker = require('webpack-bundle-tracker');
-var ExtractText = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const BundleTracker = require('webpack-bundle-tracker');
+const ExtractText = require('extract-text-webpack-plugin');
+
+const entries = require('./entry_points.json');
+
+const entryPoints = () => {
+    const entryPointObject = {};
+    for (let key in entries) {
+        entryPointObject[key] = path.join(__dirname, entries[key])
+    }
+
+    return entryPointObject;
+};
 
 module.exports = {
-    entry: path.join(__dirname, 'assets/src/js/index'),
+    entry: entryPoints(),
     output: {
         path: path.join(__dirname, 'assets/dist'),
         filename: '[name]-[hash].js'
