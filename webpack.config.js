@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const BundleTracker = require('webpack-bundle-tracker');
 const ExtractText = require('extract-text-webpack-plugin');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 const entries = require('./entry_points.json');
 
@@ -27,6 +28,13 @@ module.exports = {
         }),
         new ExtractText({
             filename: '[name]-[hash].css'
+        }),
+        new WebpackBuildNotifierPlugin({
+            title: "Proyect Example Build",
+            // logo: path.resolve('/path/to/project/logo'),
+            successSound: true,
+            compilationSound: true,
+            failureSound: true
         })
     ],
     module: {
