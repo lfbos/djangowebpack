@@ -21,6 +21,7 @@ module.exports = {
         path: path.join(__dirname, 'assets/dist'),
         filename: '[name]-[hash].js'
     },
+    devtool: 'source-map',
     plugins: [
         new BundleTracker({
             path: __dirname,
